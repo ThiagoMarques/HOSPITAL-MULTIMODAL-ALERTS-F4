@@ -38,6 +38,18 @@ def cmd_video(video: Path, sample_every: int, max_frames: int | None) -> None:
     print(f"\nRelatórios:\n  {json_path}\n  {txt_path}")
 
 
+def cmd_audio(audio: Path) -> None:
+    from src.audio.pipeline import analisar_audio, salvar_relatorio
+
+    resultado = analisar_audio(audio)
+    preview = {k: v for k, v in resultado.items() if k != "transcricao"}
+    json_path, txt_path = salvar_relatorio(resultado)
+    print(json.dumps(preview, ensure_ascii=False, indent=2))
+    print("\nTranscrição (trecho):")
+    print(resultado["transcricao"][:500], "...")
+    print(f"\nRelatórios:\n  {json_path}\n  {txt_path}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Monitoramento multimodal — Fase 4")
     parser.add_argument("--checar", action="store_true", help="Valida pastas e dados.")
@@ -47,14 +59,27 @@ def main() -> None:
         action="store_true",
         help="Analisa amostra_ok.mp4 e amostra_anomalia.mp4.",
     )
+    parser.add_argument(
+        "--audio",
+        type=Path,
+        nargs="?",
+        const=config.AUDIO_DIR / "amostra_consulta_joelho.mp3",
+        help="Analisa áudio com Azure Speech + Text Analytics. "
+        "Sem caminho, usa amostra_consulta_joelho.mp3.",
+    )
     parser.add_argument("--sample-every", type=int, default=2)
     parser.add_argument("--max-frames", type=int, default=None)
     args = parser.parse_args()
 
-    if args.checar or (not args.video and not args.videos_amostra):
+    nenhuma_acao = not args.video and not args.videos_amostra and args.audio is None
+    if args.checar or nenhuma_acao:
         checar_ambiente()
-        if not args.video and not args.videos_amostra:
+        if nenhuma_acao:
             return
+
+    if args.audio is not None:
+        cmd_audio(args.audio)
+        return
 
     if args.videos_amostra:
         resultados = []

@@ -16,9 +16,7 @@ VITAIS_DIR = DADOS / "sinais_vitais"
 PRESCRICOES_DIR = DADOS / "prescricoes"
 SAIDAS_DIR = DADOS / "saidas"
 
-USE_AZURE_SPEECH = os.getenv("USE_AZURE_SPEECH", "false").lower() == "true"
-USE_AZURE_TEXT_ANALYTICS = os.getenv("USE_AZURE_TEXT_ANALYTICS", "false").lower() == "true"
-
+# Azure — obrigatório para o pipeline de áudio (sem fallback local)
 AZURE_SPEECH_KEY = os.getenv("AZURE_SPEECH_KEY", "")
 AZURE_SPEECH_REGION = os.getenv("AZURE_SPEECH_REGION", "brazilsouth")
 AZURE_TEXT_ANALYTICS_ENDPOINT = os.getenv("AZURE_TEXT_ANALYTICS_ENDPOINT", "")

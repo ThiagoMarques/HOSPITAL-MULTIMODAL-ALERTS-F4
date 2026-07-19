@@ -10,11 +10,10 @@ opencv-python>=4.8.0
 mediapipe>=0.10.0
 ultralytics>=8.0.0
 
-# Áudio (local / fallback)
-openai-whisper>=20231117
-# ou use Groq via openai-compatible — opcional
+# Áudio — conversão para WAV (Azure Speech exige PCM)
+imageio-ffmpeg>=0.5.0
 
-# Azure
+# Azure (obrigatório para áudio — sem fallback local)
 azure-cognitiveservices-speech>=1.37.0
 azure-ai-textanalytics>=5.3.0
 
