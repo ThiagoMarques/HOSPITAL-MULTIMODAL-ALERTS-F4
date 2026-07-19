@@ -50,6 +50,31 @@ def cmd_audio(audio: Path) -> None:
     print(f"\nRelatórios:\n  {json_path}\n  {txt_path}")
 
 
+def cmd_anomalias(vitais: Path | None, prescricoes: Path | None) -> None:
+    from src.anomalias.detector import analisar_anomalias, salvar_relatorio
+
+    resultado = analisar_anomalias(vitais, prescricoes)
+    preview = {
+        k: v
+        for k, v in resultado.items()
+        if k not in {"vitais", "prescricoes", "alertas"}
+    }
+    preview["alertas_resumo"] = [
+        {
+            "severidade": a["severidade"],
+            "fonte": a["fonte"],
+            "timestamp": a.get("timestamp"),
+            "detalhe": a.get("flags_clinicos")
+            or a.get("medicamento")
+            or a.get("metodos"),
+        }
+        for a in resultado["alertas"]
+    ]
+    json_path, txt_path = salvar_relatorio(resultado)
+    print(json.dumps(preview, ensure_ascii=False, indent=2))
+    print(f"\nRelatórios:\n  {json_path}\n  {txt_path}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Monitoramento multimodal — Fase 4")
     parser.add_argument("--checar", action="store_true", help="Valida pastas e dados.")
@@ -67,15 +92,41 @@ def main() -> None:
         help="Analisa áudio com Azure Speech + Text Analytics. "
         "Sem caminho, usa amostra_consulta_joelho.mp3.",
     )
+    parser.add_argument(
+        "--anomalias",
+        action="store_true",
+        help="Detecta anomalias em vitais e prescrições.",
+    )
+    parser.add_argument(
+        "--vitais",
+        type=Path,
+        default=None,
+        help="CSV de sinais vitais (padrão: PAC-JOELHO-001).",
+    )
+    parser.add_argument(
+        "--prescricoes",
+        type=Path,
+        default=None,
+        help="CSV de prescrições (padrão: PAC-JOELHO-001).",
+    )
     parser.add_argument("--sample-every", type=int, default=2)
     parser.add_argument("--max-frames", type=int, default=None)
     args = parser.parse_args()
 
-    nenhuma_acao = not args.video and not args.videos_amostra and args.audio is None
+    nenhuma_acao = (
+        not args.video
+        and not args.videos_amostra
+        and args.audio is None
+        and not args.anomalias
+    )
     if args.checar or nenhuma_acao:
         checar_ambiente()
         if nenhuma_acao:
             return
+
+    if args.anomalias:
+        cmd_anomalias(args.vitais, args.prescricoes)
+        return
 
     if args.audio is not None:
         cmd_audio(args.audio)

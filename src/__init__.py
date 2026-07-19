@@ -1,1 +1,1 @@
-# Pacote de análise de vídeo
+"""Pacote principal do monitoramento multimodal."""
