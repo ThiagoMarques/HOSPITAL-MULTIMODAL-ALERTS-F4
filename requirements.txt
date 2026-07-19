@@ -1,0 +1,22 @@
+# Runtime
+python-dotenv>=1.0.0
+pandas>=2.0.0
+numpy>=1.26.0
+scikit-learn>=1.4.0
+matplotlib>=3.8.0
+
+# Vídeo
+opencv-python>=4.8.0
+mediapipe>=0.10.0
+ultralytics>=8.0.0
+
+# Áudio (local / fallback)
+openai-whisper>=20231117
+# ou use Groq via openai-compatible — opcional
+
+# Azure
+azure-cognitiveservices-speech>=1.37.0
+azure-ai-textanalytics>=5.3.0
+
+# Relatórios / LLM opcional (padrão Fase 2/3)
+openai>=1.30.0
