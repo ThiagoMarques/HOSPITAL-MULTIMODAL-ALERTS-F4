@@ -18,4 +18,5 @@ dados/audio/*
 runs/
 weights/
 *.pt
+models/*.task
 faiss_index/
