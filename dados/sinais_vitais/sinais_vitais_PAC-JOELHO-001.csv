@@ -1,0 +1,24 @@
+paciente_id,timestamp,fc_bpm,pas_mmhg,pad_mmhg,spo2_pct,dor_eva_0_10,contexto_sessao,anomalia_esperada,nota_clinica
+PAC-JOELHO-001,2026-07-10 08:00:00,74,118,76,98,3,repouso_pre_sessao,nao,Baseline antes da fisioterapia (tendinopatia patelar D)
+PAC-JOELHO-001,2026-07-10 08:03:00,75,118,76,98,3,repouso_pre_sessao,nao,Baseline antes da fisioterapia (tendinopatia patelar D)
+PAC-JOELHO-001,2026-07-10 08:06:00,92,124,78,97,4,long_arc_quad_forma_correta,nao,"Exercício Long Arc Quad (espelha amostra_ok.mp4): quadríceps, ADM, carga controlada"
+PAC-JOELHO-001,2026-07-10 08:09:00,88,125,78,98,4,long_arc_quad_forma_correta,nao,"Exercício Long Arc Quad (espelha amostra_ok.mp4): quadríceps, ADM, carga controlada"
+PAC-JOELHO-001,2026-07-10 08:12:00,90,124,78,97,5,long_arc_quad_forma_correta,nao,"Exercício Long Arc Quad (espelha amostra_ok.mp4): quadríceps, ADM, carga controlada"
+PAC-JOELHO-001,2026-07-10 08:15:00,92,125,78,98,4,long_arc_quad_forma_correta,nao,"Exercício Long Arc Quad (espelha amostra_ok.mp4): quadríceps, ADM, carga controlada"
+PAC-JOELHO-001,2026-07-10 08:18:00,88,124,78,97,4,long_arc_quad_forma_correta,nao,"Exercício Long Arc Quad (espelha amostra_ok.mp4): quadríceps, ADM, carga controlada"
+PAC-JOELHO-001,2026-07-10 08:21:00,90,125,78,98,4,long_arc_quad_forma_correta,nao,"Exercício Long Arc Quad (espelha amostra_ok.mp4): quadríceps, ADM, carga controlada"
+PAC-JOELHO-001,2026-07-10 08:24:00,82,120,76,98,3,recuperacao_pos_exercicio,nao,Recuperação após sessão com forma adequada
+PAC-JOELHO-001,2026-07-10 08:27:00,81,120,76,98,3,recuperacao_pos_exercicio,nao,Recuperação após sessão com forma adequada
+PAC-JOELHO-001,2026-07-10 08:30:00,80,120,76,98,3,recuperacao_pos_exercicio,nao,Recuperação após sessão com forma adequada
+PAC-JOELHO-001,2026-07-10 08:33:00,79,120,76,98,3,recuperacao_pos_exercicio,nao,Recuperação após sessão com forma adequada
+PAC-JOELHO-001,2026-07-12 09:00:00,76,120,78,98,4,repouso_pre_sessao,nao,Início da sessão; paciente relata dor residual no joelho D
+PAC-JOELHO-001,2026-07-12 09:03:00,76,120,78,98,4,repouso_pre_sessao,nao,Início da sessão; paciente relata dor residual no joelho D
+PAC-JOELHO-001,2026-07-12 09:06:00,92,128,82,97,6,exercicio_funcional_joelho,nao,Exercício funcional; dor anterior no joelho aumentada vs sessão com forma correta
+PAC-JOELHO-001,2026-07-12 09:09:00,93,128,82,97,6,exercicio_funcional_joelho,nao,Exercício funcional; dor anterior no joelho aumentada vs sessão com forma correta
+PAC-JOELHO-001,2026-07-12 09:12:00,132,158,98,93,8,agachamento_afundo_forma_inadequada,sim,ANOMALIA: pico de FC/PA e dessaturação durante agachamento com forma inadequada (espelha amostra_anomalia.mp4)
+PAC-JOELHO-001,2026-07-12 09:15:00,128,152,96,94,9,agachamento_afundo_forma_inadequada,sim,ANOMALIA: dor intensa no joelho (EVA 9); compensação pélvica/coxa — padrão do vídeo de forma errada
+PAC-JOELHO-001,2026-07-12 09:18:00,118,148,92,95,7,agachamento_afundo_forma_inadequada,sim,ANOMALIA: FC e PA ainda elevadas após sobrecarga no aparelho extensor
+PAC-JOELHO-001,2026-07-12 09:21:00,97,128,82,97,6,exercicio_funcional_joelho,nao,Exercício funcional; dor anterior no joelho aumentada vs sessão com forma correta
+PAC-JOELHO-001,2026-07-12 09:24:00,98,128,82,97,6,exercicio_funcional_joelho,nao,Exercício funcional; dor anterior no joelho aumentada vs sessão com forma correta
+PAC-JOELHO-001,2026-07-12 09:27:00,99,128,82,97,6,exercicio_funcional_joelho,nao,Exercício funcional; dor anterior no joelho aumentada vs sessão com forma correta
+PAC-JOELHO-001,2026-07-13 22:00:00,48,88,52,91,2,monitoramento_ambulatorial,sim,ANOMALIA: bradicardia + hipotensão + SpO2 baixa fora do contexto de exercício (alerta de monitoramento)

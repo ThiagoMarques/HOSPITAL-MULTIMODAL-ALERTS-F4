@@ -1,0 +1,24 @@
+PACIENTE SINTÉTICO — alinhado às amostras de áudio/vídeo
+============================================================
+ID: PAC-JOELHO-001
+Iniciais: J.S. | Idade: 28 | Sexo: M
+Esporte: voleibol recreativo
+Diagnóstico: Tendinopatia patelar (joelho do saltador) — joelho direito
+Queixa: Dor anterior no joelho ao saltar, chutar e desacelerar na corrida
+
+Mídia correlacionada (mesma temática — joelho / aparelho extensor):
+  - Áudio (educação clínica jumper's knee): dados/audio/amostra_consulta_joelho.mp3
+  - Vídeo forma correta (Long Arc Quad / quadríceps): dados/video/amostra_ok.mp4
+  - Vídeo forma inadequada (squat/lunge piora joelho): dados/video/amostra_anomalia.mp4
+
+Arquivos gerados:
+  - dados/sinais_vitais/sinais_vitais_PAC-JOELHO-001.csv
+  - dados/prescricoes/prescricoes_PAC-JOELHO-001.csv
+
+Pontos anômalos (para o detector):
+  - Vitais: picos de FC/PA, SpO2 baixa e EVA alta na sessão de forma inadequada; outlier ambulatorial.
+  - Prescrições: Tramadol e Prednisona introduzidos de forma inesperada (depois suspensos).
+
+Referências clínicas usadas na construção (não são PHI real):
+  - Cleveland Clinic — Patellar Tendinitis (Jumper’s Knee): rest, NSAIDs OTC curto prazo, PT
+  - Literatura de progressive tendon-loading / eccentric exercise para tendinopatia patelar

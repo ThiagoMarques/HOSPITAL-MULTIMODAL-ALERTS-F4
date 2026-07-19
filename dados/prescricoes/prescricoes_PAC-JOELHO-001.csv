@@ -1,0 +1,11 @@
+paciente_id,data,medicamento,dose,via,frequencia,indicacao,status,anomalia_esperada,motivo_clinico
+PAC-JOELHO-001,2026-07-08,Ibuprofeno,400 mg,oral,8/8h por 7 dias,Tendinopatia patelar (joelho do saltador) — joelho D,ativo,nao,AINE de curta duração para dor/inflamação (Cleveland Clinic / prática comum)
+PAC-JOELHO-001,2026-07-08,Paracetamol,750 mg,oral,SOS até 4x/dia se dor >5,Tendinopatia patelar (joelho do saltador) — joelho D,ativo,nao,Analgesia adjuvante sem efeito anti-inflamatório
+PAC-JOELHO-001,2026-07-08,Gelo local,15 min,tópico,3–4x/dia,Tendinopatia patelar (joelho do saltador) — joelho D,ativo,nao,Crioterapia para sintoma no tendão patelar
+PAC-JOELHO-001,2026-07-08,Fisioterapia — carga progressiva no tendão + Long Arc Quad,sessão 45 min,reabilitação,3x/semana,Tendinopatia patelar (joelho do saltador) — joelho D,ativo,nao,Tratamento principal; alinhado a amostra_ok.mp4 e literatura de progressive loading
+PAC-JOELHO-001,2026-07-14,Ibuprofeno,400 mg,oral,suspenso após 7 dias,Tendinopatia patelar (joelho do saltador) — joelho D,suspenso,nao,Encerramento do ciclo curto de AINE — evitar uso prolongado
+PAC-JOELHO-001,2026-07-15,Tramadol,50 mg,oral,6/6h,Tendinopatia patelar (joelho do saltador) — joelho D,ativo,sim,ANOMALIA: introdução de opioide sem falha documentada de analgesia multimodal / fora do padrão inicial de tendinopatia
+PAC-JOELHO-001,2026-07-16,Prednisona,40 mg,oral,1x/dia por 5 dias,Tendinopatia patelar (joelho do saltador) — joelho D,ativo,sim,ANOMALIA: corticoide sistêmico de curta duração sem justificativa clara; corticoides em tendão elevam risco de enfraquecimento/ruptura
+PAC-JOELHO-001,2026-07-18,Tramadol,50 mg,oral,suspenso,Tendinopatia patelar (joelho do saltador) — joelho D,suspenso,nao,Revisão médica: suspensão do opioide; manter fisioterapia e analgesia simples
+PAC-JOELHO-001,2026-07-18,Prednisona,40 mg,oral,suspenso,Tendinopatia patelar (joelho do saltador) — joelho D,suspenso,nao,Revisão médica: suspensão do corticoide; reforço de carga progressiva e educação (áudio jumper's knee)
+PAC-JOELHO-001,2026-07-18,Paracetamol,750 mg,oral,SOS até 3x/dia,Tendinopatia patelar (joelho do saltador) — joelho D,ativo,nao,Retorno ao plano conservador alinhado à tendinopatia patelar
