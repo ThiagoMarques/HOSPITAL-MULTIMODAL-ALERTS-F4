@@ -75,6 +75,27 @@ def cmd_anomalias(vitais: Path | None, prescricoes: Path | None) -> None:
     print(f"\nRelatórios:\n  {json_path}\n  {txt_path}")
 
 
+def cmd_orquestrar(
+    *,
+    reprocessar: bool,
+    audio: Path | None,
+    sample_every: int,
+    max_frames: int | None,
+) -> None:
+    from src.orquestracao.alerta import orquestrar, salvar_alerta
+
+    alerta = orquestrar(
+        reprocessar=reprocessar,
+        audio_path=audio,
+        sample_every=sample_every,
+        max_frames=max_frames,
+    )
+    json_path, txt_path = salvar_alerta(alerta)
+    preview = {k: v for k, v in alerta.items() if k != "evidencias"}
+    print(json.dumps(preview, ensure_ascii=False, indent=2))
+    print(f"\nAlerta:\n  {json_path}\n  {txt_path}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Monitoramento multimodal — Fase 4")
     parser.add_argument("--checar", action="store_true", help="Valida pastas e dados.")
@@ -98,6 +119,16 @@ def main() -> None:
         help="Detecta anomalias em vitais e prescrições.",
     )
     parser.add_argument(
+        "--orquestrar",
+        action="store_true",
+        help="Fusão multimodal: gera alerta_*.json (vídeo + áudio + anomalias).",
+    )
+    parser.add_argument(
+        "--reprocessar",
+        action="store_true",
+        help="Com --orquestrar, refaz as modalidades em vez de usar cache em dados/saidas/.",
+    )
+    parser.add_argument(
         "--vitais",
         type=Path,
         default=None,
@@ -118,11 +149,21 @@ def main() -> None:
         and not args.videos_amostra
         and args.audio is None
         and not args.anomalias
+        and not args.orquestrar
     )
     if args.checar or nenhuma_acao:
         checar_ambiente()
         if nenhuma_acao:
             return
+
+    if args.orquestrar:
+        cmd_orquestrar(
+            reprocessar=args.reprocessar,
+            audio=args.audio if isinstance(args.audio, Path) else None,
+            sample_every=args.sample_every,
+            max_frames=args.max_frames,
+        )
+        return
 
     if args.anomalias:
         cmd_anomalias(args.vitais, args.prescricoes)
